@@ -11,6 +11,7 @@ import { useHomeFetch } from '../hooks/useHomeFetch';
 import NoImage from '../images/no_image.jpg';
 import Grid from './Grid';
 import HeroImage from './HeroImage';
+import Spinner from './Spinner';
 import Thumb from './Thumb';
 
 const Home = () => {
@@ -39,6 +40,7 @@ const Home = () => {
                            movieId={movie.id}/>
                 ))}
             </Grid>
+            <Spinner/>
         </>
     );
 }
