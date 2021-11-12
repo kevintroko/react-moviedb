@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 // Styles
 import { Wrapper, Content } from './Searchbar.styles';
@@ -8,8 +8,14 @@ import searchIcon from '../../images/search-icon.svg';
 
 const SearchBar = ({ setSearchTerm }) => {
     const [state, setState] = useState('');
-    
+    const initial = useRef(true);
+        
     useEffect(() => {
+        if (initial.current) {
+            initial.current = false;
+            return;
+        }
+        
         const timer = setTimeout(() => {
             setSearchTerm(state)
         }, 1000)
