@@ -3,6 +3,7 @@ import { useMovieFetch } from '../hooks/useMovieFetch';
 import { useParams  } from 'react-router-dom';
 import BreadCrumb from './BreadCrumb';
 import Spinner from './Spinner';
+import MovieInfo from './MovieInfo';
 
 const Movie = () => {
     const { movieId } = useParams();
@@ -21,7 +22,7 @@ const Movie = () => {
     return (
       <>
         <BreadCrumb movieTitle={movie.original_title}></BreadCrumb>
-        <div>Movie</div>
+        <MovieInfo  movie={movie}></MovieInfo>
       </>  
     );
 };
