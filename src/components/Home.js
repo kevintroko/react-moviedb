@@ -17,9 +17,13 @@ import Spinner from './Spinner';
 import Thumb from './Thumb';
 
 const Home = () => {
-    const { state, setSearchTerm, searchTerm, loading } = useHomeFetch();
+    const { state, setSearchTerm, searchTerm, loading, setIsLoadingMore, error } = useHomeFetch();
     
     console.log(state);
+    
+    if (error) {
+        return <div>Something went wrong...</div>
+    }
     
     return (
         <>
@@ -46,9 +50,8 @@ const Home = () => {
             { loading && <Spinner/>}
             {
                 state.page < state.total_pages && !loading && (
-                    <Button text='Load More'/>
+                    <Button text='Load More' callback={() => setIsLoadingMore(true)}/>
                 )
-                
             }
         </>
     );
