@@ -4,6 +4,7 @@ import { useParams  } from 'react-router-dom';
 import BreadCrumb from './BreadCrumb';
 import Spinner from './Spinner';
 import MovieInfo from './MovieInfo';
+import MovieInfoBar from './MovieInfoBar';
 
 const Movie = () => {
     const { movieId } = useParams();
@@ -23,6 +24,7 @@ const Movie = () => {
       <>
         <BreadCrumb movieTitle={movie.original_title}></BreadCrumb>
         <MovieInfo  movie={movie}></MovieInfo>
+        <MovieInfoBar budget={movie.budget} revenue={movie.revenue} time={movie.runtime}></MovieInfoBar>
       </>  
     );
 };
