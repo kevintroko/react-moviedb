@@ -3,6 +3,7 @@ import { Content, Text, Wrapper } from './MovieInfo.styles';
 import Thumb from '../Thumb';
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../../config';
 import NoImage from '../../images/no_image.jpg';
+import PropTypes from 'prop-types';
 
 const MovieInfo = ({ movie }) => (
     <Wrapper backdrop={movie?.backdrop_path}>
@@ -38,10 +39,13 @@ const MovieInfo = ({ movie }) => (
                         }
                     </div>
                 </div>
-                
             </Text>
         </Content>
     </Wrapper>
 );
+
+MovieInfo.prototypes = {
+    movie: PropTypes.object
+};
 
 export default MovieInfo;
